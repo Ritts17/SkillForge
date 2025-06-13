@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - SkillForge</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="d-flex justify-content-center align-items-center vh-100 bg-light">
+
+  <div class="card p-4 shadow" style="max-width: 400px; width: 100%;">
+    <h4 class="mb-3 text-center">Login to SkillForge</h4>
+    <form id="login-form">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" required value="riteshkal1710@gmail.com" />
+      </div>
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" required value="Ritesh Kalanke" />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("login-form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      // Simulate login by storing in localStorage
+      localStorage.setItem("skillforgeUser", JSON.stringify({
+        name: name,
+        email: email,
+        role: "Learner",
+        bookmarks: ["Frontend Development", "Spring Boot", "AI Basics"]
+      }));
+
+      window.location.href = "profile.html";
+    });
+  </script>
+</body>
+</html>
